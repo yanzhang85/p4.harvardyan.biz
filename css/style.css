@@ -1,0 +1,289 @@
+
+/*--------------------------------------------------------------------
+GLOBAL
+---------------------------------------------------------------------*/
+
+body {
+	font-family: Helvetica,sans-serif, arial;
+	background: #efefef;
+}
+
+h2 { 
+	font-family: Serif, Helvetica;
+	font-style: italic;
+	font-weight: bold;
+	font-size: 2.5em;
+	margin-bottom: 3em;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+h3 {
+	color: #000;
+	font-family: Serif, Helvetica;
+	font-size: 2.1em;
+	font-weight: 700;
+	padding-bottom: .8em;
+	text-shadow: 1px 1px 2px #fff;
+	text-align: center;
+	color: blue;
+	border-bottom: 1px solid black;
+	border-bottom-right-radius:2em;
+	border-bottom-left-radius:2em;
+	
+}
+
+h4 {
+	color:black;
+	font-size: 1em;
+	font-family: Helvetica, Arial, sans-serif;
+	font-weight: 700;
+	letter-spacing: .2em;
+	margin :1em auto;
+	text-align: left;
+	text-shadow: 1px 1px 1px #fff;
+	width: 100%;
+}
+
+form {
+	font-family: Helvetica, sans-serif;
+	font size: 1em;
+	text-align: center;
+	margin-top: 3em;
+}
+
+form input,
+form textarea {
+	background: none;
+	border: none;
+	border-bottom: 1px dotted #000;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 0 2em 0;
+	padding-bottom: .5em;
+	width: 100%;
+}
+
+.button {
+	border-radius: 5em;
+	background: #72e63a;
+	display: block;
+	font-family: serif,Helvetica;
+	letter-spacing: 0;
+	list-style: none;
+	margin: 2em auto;
+	text-align: center;
+	text-transform: uppercase;
+	width: 5em;
+	height: 5em;
+}
+
+
+.profile-pic {
+	width: 100px;
+	height: 100px;
+	margin: 0 auto 1em auto;
+	border-radius: 10px;
+	display: block;
+}
+
+nav {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+nav ul {
+	padding: 1em;
+}
+
+nav ul li {
+	color: #efefef;
+	background: #111;
+	border-radius: 5em;
+	font-family: serif,Helvetica;
+	font-size: .7em;
+	letter-spacing: .1em;
+	list-style: none;
+	margin: .5em;
+	padding: .8em;
+	text-align: center;
+	text-transform: uppercase;
+	width: 5em;
+	height: 5em;
+}
+
+nav ul li: hover{
+	background: #72e63a;
+}
+
+nav ul li a:link, 
+nav ul li a:visited
+ {
+        color: #efefef;
+        line-height: 1em;
+        position: relative;
+        top: 1.5em;
+        text-align: center;
+        text-decoration: none;
+        vertical-align: middle;
+}
+
+.mainpage{
+	margin-left:100px;
+}
+
+.button {
+        border-radius: 5em;
+        background: #72e63a;
+        border-radius: 5em;
+        display: block;
+        font-family: 'Asap', serif;
+        letter-spacing: 0;
+        list-style: none;
+        margin: 2em auto;
+        text-align: center;
+        text-transform: uppercase;
+        width: 5em;
+        height: 5em;
+}
+
+.button input{
+        border: none;
+        color: #000;
+        display: block;
+        font-size: .8em;
+        font-weight: 700;
+        line-height: 1.6em;
+        margin: 0 auto;
+        padding: .8em;
+        position: relative;
+        top: 1.5em;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+}
+
+.content {
+        background: #efefef;
+        color: #111;
+        margin: 5em auto 0 auto;
+        padding-bottom: 6em;
+        width: 60%;
+
+}
+
+
+footer {
+        
+        background: #111;
+        position: fixed;
+        color:white;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        text-align: left;
+}
+
+footer a:link,
+footer a:visited
+{
+	color: #efefef;
+}
+
+/*--------------------------------------------------------------------
+LOGIN
+---------------------------------------------------------------------*/
+.content.login {
+        margin-top: 2em;
+}
+
+.message {
+        font-size: 1em;
+        padding: 1em 0;
+}
+
+.error {
+        color: red;
+}
+
+/*--------------------------------------------------------------------
+PROFILE
+---------------------------------------------------------------------*/
+.profile h4 {
+        margin-top: 2em;
+        text-align: center;
+}
+
+.profile input {
+	background: none;
+	border: none;
+	font-size: 1em;
+	font-weight: 400;
+	margin: 1em 0 0 4.4em;
+	width:40%;
+	text-align: center;
+}
+
+/*--------------------------------------------------------------------
+POSTS
+---------------------------------------------------------------------*/
+.new-post textarea {
+        background: #fff;
+        border: 1px dotted #cdcdcd;
+        padding: 1em;
+        margin: 0 auto;
+        min-height: 100px;
+        width: 92%;
+}
+
+
+/*--------------------------------------------------------------------
+POSTS
+---------------------------------------------------------------------*/
+.posts article {
+        border-bottom: 1px dotted #cdcdcd;
+        margin: 1.5em 0 0 0;
+        padding-bottom: 2em;
+}
+
+.posts .name{
+		color:black;
+		font-size: 1.3em;
+		font-family: Helvetica, Arial, sans-serif;
+		font-weight: 700;
+		letter-spacing: .2em;
+		margin :1em auto;
+		text-align: left;
+		text-shadow: 1px 1px 1px #fff;
+		width: 100%;
+}
+
+.posts p {
+        background: #fff;
+        border: 1px dotted #cdcdcd;
+        font-family: serif, Helvetica;
+        font-size: 1.2em;
+        padding: 1em;
+}
+
+.posts .time {
+        background: none;
+        border: none;
+        text-align: right;
+}
+
+/*--------------------------------------------------------------------
+FOLLOW
+---------------------------------------------------------------------*/
+.follow article {
+        border-bottom: 1px dotted #cdcdcd;
+        margin-bottom: 1em;
+        padding-bottom: 1em;
+        text-align: center;
+}
+
+.follow h4 {
+        margin-top: .5em;
+        text-align: center;
+}
