@@ -14,6 +14,10 @@ class users_controller extends base_controller {
     }
 
     public function signup() {
+        # redirect to profile page if the user is already logged in
+        if ($this->user) {
+            router::redirect('/users/profile');
+        }
             # Set up the view
         $this->template->content = View::instance('v_users_signup');
         $this->template->title = "Sign up";
@@ -201,6 +205,11 @@ class users_controller extends base_controller {
 
     public function login($error = NULL) {
 
+        # redirect to profile page if the user is already logged in
+        if ($this->user) {
+            router::redirect('/users/profile');
+        }
+
         # Set up the view
         $this->template->content = View::instance("v_users_login");
         $this->template->title = "Log in";
@@ -220,7 +229,7 @@ class users_controller extends base_controller {
     public function logout() {
         # Create the data array we'll use with the update method
         # In this case, we're only updating one field, so our array only has one entry
-        $data = Array("gameroom" => 0);
+        $data = Array("chatroom" => 0);
 
         # Do the update
         DB::instance(DB_NAME)->update("users", $data, "WHERE user_id = '".$this->user->user_id."'");
@@ -252,7 +261,7 @@ class users_controller extends base_controller {
 
         # Create the data array we'll use with the update method
         # In this case, we're only updating one field, so our array only has one entry
-        $data = Array("gameroom" => 0);
+        $data = Array("chatroom" => 0);
 
         # Do the update
         DB::instance(DB_NAME)->update("users", $data, "WHERE user_id = '".$this->user->user_id."'");

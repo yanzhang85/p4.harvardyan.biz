@@ -21,3 +21,13 @@
 	</div>
 	
 </section>
+
+<footer>
+	<div>
+        <p class="right pull-right">Netchat<br>
+        Yan Zhang<br>
+        <a href="mailto:yanzhang01@g.harvard.edu">yanzhang01@g.harvard.edu</a>
+        </p>
+    </div>
+
+</footer>

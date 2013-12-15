@@ -14,7 +14,7 @@
 
         # Create the data array we'll use with the update method
         # In this case, we're only updating one field, so our array only has one entry
-        $data = Array("gameroom" => 0);
+        $data = Array("chatroom" => 0);
 
         # Do the update
         DB::instance(DB_NAME)->update("users", $data, "WHERE user_id = '".$this->user->user_id."'");
@@ -71,7 +71,7 @@
 
             # Create the data array we'll use with the update method
             # In this case, we're only updating one field, so our array only has one entry
-            $data = Array("gameroom" => 0);
+            $data = Array("chatroom" => 0);
 
             # Do the update
             DB::instance(DB_NAME)->update("users", $data, "WHERE user_id = '".$this->user->user_id."'");
@@ -117,7 +117,7 @@
 
             # Create the data array we'll use with the update method
             # In this case, we're only updating one field, so our array only has one entry
-            $data = Array("gameroom" => 0);
+            $data = Array("chatroom" => 0);
 
             # Do the update
             DB::instance(DB_NAME)->update("users", $data, "WHERE user_id = '".$this->user->user_id."'");

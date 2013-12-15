@@ -23,6 +23,8 @@
 			    <li><a href='/posts/add'>Add posts</a></li>
 			    <li><a href='/posts/'>View posts</a></li>
 			    <li><a href='/posts/users'>Follow others</a></li>
+			    <li><a href='/chat/room'>Chat</a></li>
+			    <li><a href='/game'>Game</a></li>
 			    <li><a href='/users/logout'>Log out</a></li>
 			<?php else: ?>
 			    <li><a href='/users/signup'>Sign up</a></li>
@@ -38,14 +40,6 @@
 	<?php if(isset($client_files_body)) echo $client_files_body; ?>
 
 
-	<footer>
-		<div>
-                <p class="right pull-right">Netchat<br>
-                Yan Zhang<br>
-                <a href="mailto:yanzhang01@g.harvard.edu">yanzhang01@g.harvard.edu</a>
-                </p>
-        </div>
-
-	</footer>
+	
 </body>
 </html>
