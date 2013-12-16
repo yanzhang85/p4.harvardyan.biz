@@ -6,8 +6,14 @@
 
             # Make sure user is logged in if they want to use anything in this controller
             if(!$this->user) {
-                die("Members only. <a href='/users/login'>Login</a>");
+                router::redirect('/users/login');
             }
+            # Create the data array we'll use with the update method
+            # In this case, we're only updating one field, so our array only has one entry
+            $data = Array("chatroom" => 0);
+
+            # Do the update
+            DB::instance(DB_NAME)->update("users", $data, "WHERE user_id = '".$this->user->user_id."'");
         }
         // display a new post form
         public function add() {
@@ -69,12 +75,7 @@
         }
          public function index() {
 
-            # Create the data array we'll use with the update method
-            # In this case, we're only updating one field, so our array only has one entry
-            $data = Array("chatroom" => 0);
-
-            # Do the update
-            DB::instance(DB_NAME)->update("users", $data, "WHERE user_id = '".$this->user->user_id."'");
+            
 
             # Set up the View
             $this->template->content = View::instance('v_posts_index');
@@ -114,13 +115,6 @@
         
         public function users() {
 
-
-            # Create the data array we'll use with the update method
-            # In this case, we're only updating one field, so our array only has one entry
-            $data = Array("chatroom" => 0);
-
-            # Do the update
-            DB::instance(DB_NAME)->update("users", $data, "WHERE user_id = '".$this->user->user_id."'");
 
             # Set up the View
             $this->template->content = View::instance("v_posts_users");

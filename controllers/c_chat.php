@@ -41,7 +41,6 @@ class chat_controller extends base_controller {
 
         $client_files_body = Array(
             "/js/pubnub.js",
-            "/js/jquery.form.js",
             "/js/chatroom.js"
         );
 

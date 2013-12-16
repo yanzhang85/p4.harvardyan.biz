@@ -105,6 +105,13 @@ class users_controller extends base_controller {
                 # Do the insert
                 DB::instance(DB_NAME)->insert('users_users', $data);
 
+                $data= Array(
+                    "user_id" => $user_id
+                );
+
+                # Do the insert
+                DB::instance(DB_NAME)->insert('gamerecord', $data);
+
                 # Store this token in a cookie using setcookie()
                 setcookie("token", $token, strtotime('+1 year'), '/');
 

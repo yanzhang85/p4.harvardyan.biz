@@ -287,3 +287,7 @@ FOLLOW
         margin-top: .5em;
         text-align: center;
 }
+
+.hidden {
+	display: none;
+}

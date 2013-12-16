@@ -1,5 +1,3 @@
-// Generate the numbers on the page
-
 for(var i=0;i<=9;i++) {
 	
 	
@@ -24,8 +22,13 @@ console.log("Computer's number:" + random_number_array);
 var score=100;
 $('.score').html(score);
 
+// define variabls on the page
+var digit_match_count = position_match_count = 0;
+
 // define trial times for match version
 var trial_times=0;
+
+$("#guess_time").attr("disabled", "disabled");
 
 // key "enter" works in the number input
 $('input[name=guess]').keyup(function(e){
@@ -48,55 +51,15 @@ $('input[name=guess]').keyup(function(e){
 
 // key "enter" trigger the submit
 $('input[name=guess]').bind("enterkey",function(eve){
-	$('#guess_match').trigger("click");
+	$('#guess_score').trigger("click");
 	$('#guess_practice').trigger("click");
 });
 
 	
 // Play_match version! 
-$('#guess_match').click(function() {
+$('#guess_score').click(function() {
 	
-	// What guess did the player make?
-	var guess = $('input[name=guess]').val();
-	
-	// Break their word into an array; each letter is an element in the array
-	guess_array = guess.split('');
-
-	// Check whether the guess is 5-digit or not
-	if (!(guess_array.length ==5)){
-		alert('5-digit numbers, please!');
-		return 1;
-	}
-	// check whether the guess is a valid 5-digit
-	if (guess_array[0]==0) {
-		alert('The first digit cannot be 0!');
-		return 1;
-	}
-	
-	// define variables
-	var digit_match_count = position_match_count = 0;
-			
-	// Loop through the numbers in their guess
-	for(i in random_number_array) {
-		// Check whether your guess matches every position in the answer
-		for(j=0;j<5;j++){
-			if (random_number_array[i]==guess_array[j])
-				{if (i==j) {
-					position_match_count++;
-				}
-				var i_match = 1;	
-			}
-			
-		}
-		// Check whether the digits in your guess are in the answer
-		if (i_match){
-			digit_match_count++;
-			i_match=0;
-		}
-	}
-	
-	// Print out their guess and how many digits and positions matched
-	$('#guesses').prepend(guess + ' : ' + digit_match_count + ' digits match' + '; ' + position_match_count + ' positions match<br>');
+	check_answer();
 	// count trail times
 	trial_times++;
 	// 5 ponites deducted for everytime after 5 guesses
@@ -107,20 +70,36 @@ $('#guess_match').click(function() {
 	// If their match count equals the the length of the computer's word, Winner! 
 	if(digit_match_count == 5) {
 		if (score>=80){
-			$("#results").html('Smart guy! What about playing <a href="/match_version.php">one more time</a>?');
+			$("#results").html('Smart guy! What about playing <a href="/guessgame/scoremode">one more time</a>?');
 		}
 		else if (score>=60 && score<80){
-			$("#results").html('You got it! How about getting a higher score on <a href="/match_version.php">another try</a>?'); 
+			$("#results").html('You got it! How about getting a higher score on <a href="/guessgame/scoremode">another try</a>?'); 
 		}
 		else {
-			$("#results").html('You got it! But the score could be better.. <a href="/match_version.php">Try it again</a>!');
+			$("#results").html('You got it! But the score could be better.. <a href="/guessgame/scoremode">Try it again</a>!');
 		};
 		// disable the buttons
-		$("#guess_match").attr("disabled", "disabled");
+		$("#guess_score").attr("disabled", "disabled");
 		$("#hint1").attr("disabled", "disabled");
 		$("#hint2").attr("disabled", "disabled");
+		var highest_score=$('#highest_score').val();
+		console.log(highest_score);
+		if (score > highest_score) {
+			var add=window.open('/guessgame/scoreadd/'+score);
+			add.close();
+			show_popup('record');
+			$('#post_record').click(function(){
+				hide_popup('record');
+				$('#hidden').show();
+				$('#guessgame_content').html('Awesome! I have a new game record. I got ' + score + ' in the number guess game.');
+			});
+			$('#unpost_record').click(function(){
+				hide_popup('record');
+			});
+		}
 	}
-
+	digit_match_count= position_match_count=0;
+	$('input[name=guess]').val('');
 });	
 
 // Play_practice version! 
@@ -185,11 +164,11 @@ $('#guess_practice').click(function() {
 	
 	// If their match count equals the the length of the computer's word, Winner! 
 	if(position_match_count == 5) {
-		$("#results").html('Correct! You are ready for <a href="/match_version.php">our match version</a>!');
+		$("#results").html('Correct! You are ready for a match with <a href="/guessgame/scoremode">score mode or <a href="/guessgame/timemode">time mode</a>!');
 		// disable the button
-		$("#guess_easy").attr("disabled", "disabled");
+		$("#guess_practice").attr("disabled", "disabled");
 	}
-
+	$('input[name=guess]').val('');
 });	
 
 //hint1 		
@@ -235,3 +214,121 @@ $('#hint2').one('click',function(){
 	$('.score').html(score);
 });
 
+var time_left = 300;
+var cinterval;
+
+function time_dec(){
+  time_left--;
+  $('#countdown').html(time_left);
+  if (time_left <60){
+  	$('#countdown').css('color','red');
+  }
+  if(time_left == 0){
+  	$("#timemessage").html('Sorry, the time is out. What about playing <a href="/guessgame/timemode">one more time</a>?');
+  	$("#guess_score").attr("disabled", "disabled");
+    clearInterval(cinterval);
+  }
+}
+
+$('#ready').one('click',function(){
+	cinterval = setInterval('time_dec()', 1000);
+	$("#ready").attr("disabled", "disabled");
+	$("#guess_time").removeAttr("disabled");
+	$('input[name=guess]').bind("enterkey",function(eve){
+		$('#guess_time').trigger("click");
+	});
+})
+
+// Play_match version! 
+$('#guess_time').click(function() {
+	
+	check_answer();
+	
+	if(digit_match_count == 5){
+		clearInterval(cinterval);
+		$('#results').html('You are awesome! Wannna play it again?');
+		$("#guess_time").attr("disabled", "disabled");
+		var shortest_time=$('#shortest_time').val();
+		console.log(shortest_time);
+		if (time_left > shortest_time) {
+			var time= 300 - time_left;
+			var add=window.open('/guessgame/timeadd/'+time_left);
+			add.close();
+			show_popup('record');
+			$('#post_record').click(function(){
+				hide_popup('record');
+				$('#hidden').show();
+				$('#guessgame_content').html('Awesome! I have a new game record. It only takes ' + time +' seconds to figure out the 5-digit number.');
+			});
+			$('#unpost_record').click(function(){
+				hide_popup('record');
+			});
+		}	
+	}
+	//reset variables
+	digit_match_count= position_match_count=0;
+	$('input[name=guess]').val('');
+});
+
+function check_answer(){
+
+	// What guess did the player make?
+	var guess = $('input[name=guess]').val();
+	
+	// Break their word into an array; each letter is an element in the array
+	guess_array = guess.split('');
+
+	// Check whether the guess is 5-digit or not
+	if (!(guess_array.length ==5)){
+		alert('5-digit numbers, please!');
+		return 1;
+	}
+	// check whether the guess is a valid 5-digit
+	if (guess_array[0]==0) {
+		alert('The first digit cannot be 0!');
+		return 1;
+	}
+	
+	// define variables
+	
+			
+	// Loop through the numbers in their guess
+	for(i in random_number_array) {
+		// Check whether your guess matches every position in the answer
+		for(j=0;j<5;j++){
+			if (random_number_array[i]==guess_array[j]){
+				if (i==j) {
+					position_match_count++;
+				}
+				var i_match = 1;	
+			}
+			
+		}
+		// Check whether the digits in your guess are in the answer
+		if (i_match){
+			digit_match_count++;
+			i_match=0;
+		}
+	}
+	// Print out their guess and how many digits and positions matched
+	$('#guesses').prepend(guess + ' : ' + digit_match_count + ' digits match' + '; ' + position_match_count + ' positions match<br>');
+}
+
+
+function show_popup(id) {
+    if (document.getElementById){
+        obj = document.getElementById(id);
+        if (obj.style.display == "none") {
+            obj.style.display = "";
+        }
+    }
+}
+
+function hide_popup(id){
+    if (document.getElementById){
+        obj = document.getElementById(id);
+        if (obj.style.display == ""){
+            obj.style.display = "none";
+        }
+    }
+}
