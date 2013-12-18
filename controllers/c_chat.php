@@ -4,18 +4,14 @@ class chat_controller extends base_controller {
     public function __construct() {
         parent::__construct();
         # Make sure user is logged in if they want to use anything in this controller
-            if(!$this->user) {
-                die("Members only. <a href='/users/login'>Login</a>");
+            if (!$this->user) {
+                router::redirect('/users/login');
             }
         
     } 
 
     public function room() {
-          # if user is blank, then they're not logged in - redirect to login
-        if (!$this->user) {
-            router::redirect('/users/login');
-        }
-       
+          
         # Create the data array we'll use with the update method
         # In this case, we're only updating one field, so our array only has one entry
         $data = Array("chatroom" => 1);

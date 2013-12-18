@@ -87,14 +87,14 @@ $('#guess_score').click(function() {
 		if (score > highest_score) {
 			var add=window.open('/guessgame/scoreadd/'+score);
 			add.close();
-			show_popup('record');
+			$('#record').show();
 			$('#post_record').click(function(){
-				hide_popup('record');
+				$('#record').hide();
 				$('#hidden').show();
 				$('#guessgame_content').html('Awesome! I have a new game record. I got ' + score + ' in the number guess game.');
 			});
 			$('#unpost_record').click(function(){
-				hide_popup('record');
+				$('#record').hide();
 			});
 		}
 	}
@@ -164,7 +164,7 @@ $('#guess_practice').click(function() {
 	
 	// If their match count equals the the length of the computer's word, Winner! 
 	if(position_match_count == 5) {
-		$("#results").html('Correct! You are ready for a match with <a href="/guessgame/scoremode">score mode or <a href="/guessgame/timemode">time mode</a>!');
+		$("#results").html('Correct! You are ready for a match with <a href="/guessgame/scoremode">score mode</a> or <a href="/guessgame/timemode">time mode</a>!');
 		// disable the button
 		$("#guess_practice").attr("disabled", "disabled");
 	}
@@ -254,14 +254,14 @@ $('#guess_time').click(function() {
 			var time= 300 - time_left;
 			var add=window.open('/guessgame/timeadd/'+time_left);
 			add.close();
-			show_popup('record');
+			$('#record').show();
 			$('#post_record').click(function(){
-				hide_popup('record');
+				$('#record').hide();
 				$('#hidden').show();
 				$('#guessgame_content').html('Awesome! I have a new game record. It only takes ' + time +' seconds to figure out the 5-digit number.');
 			});
 			$('#unpost_record').click(function(){
-				hide_popup('record');
+				$('#record').hide();
 			});
 		}	
 	}
@@ -314,21 +314,3 @@ function check_answer(){
 	$('#guesses').prepend(guess + ' : ' + digit_match_count + ' digits match' + '; ' + position_match_count + ' positions match<br>');
 }
 
-
-function show_popup(id) {
-    if (document.getElementById){
-        obj = document.getElementById(id);
-        if (obj.style.display == "none") {
-            obj.style.display = "";
-        }
-    }
-}
-
-function hide_popup(id){
-    if (document.getElementById){
-        obj = document.getElementById(id);
-        if (obj.style.display == ""){
-            obj.style.display = "none";
-        }
-    }
-}

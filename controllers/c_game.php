@@ -18,14 +18,7 @@ class game_controller extends base_controller {
 
     public function homepage() {
         # Set up the view
-        $this->template->content = View::instance('v_guessgame_practice');
-
-        # Load JS files
-            $client_files_body = Array(
-                "/js/guessgame.js"
-            );
-
-            $this->template->client_files_body = Utils::load_client_files($client_files_body);   
+        $this->template->content = View::instance('v_game_homepage');
 
         # Render the view
         echo $this ->template;

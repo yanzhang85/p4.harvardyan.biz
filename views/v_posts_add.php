@@ -6,6 +6,6 @@
     <div class="button"><input type='submit' value='Add'></div>
 
 </form> 
+<div id="post_results"></div>
 </section>
 
-<div id="results"></div>

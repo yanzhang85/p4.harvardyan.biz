@@ -3,10 +3,10 @@ var options = {
     type: 'POST',
     url: '/posts/p_add/',
     beforeSubmit: function() {
-        $('#results').html("Adding...");
+        $('#post_results').html("Adding...");
     },
     success: function(response) {   
-        $('#results').html(response);
+        $('#post_results').html(response);
     } 
 }; 
 

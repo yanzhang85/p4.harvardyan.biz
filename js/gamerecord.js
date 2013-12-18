@@ -1,3 +1,6 @@
+var a = $('#refresh-button').val;
+console.log(a);
+
 $('#refresh-button').click(function() {
 
     $.ajax({

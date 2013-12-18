@@ -25,7 +25,7 @@
 			    <li><a href='/posts/'>View posts</a></li>
 			    <li><a href='/posts/users'>Follow others</a></li>
 			    <li><a href='/chat/room'>Chat</a></li>
-			    <li><a href='/game'>Game</a></li>
+			    <li><a href='/game/homepage'>Game</a></li>
 			    <li><a href='/users/logout'>Log out</a></li>
 			<?php else: ?>
 			    <li><a href='/users/signup'>Sign up</a></li>

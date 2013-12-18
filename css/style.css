@@ -78,6 +78,9 @@ form textarea {
 	height: 5em;
 }
 
+.hidden {
+	display: none;
+}
 
 .profile-pic {
 	width: 100px;
@@ -133,21 +136,6 @@ nav ul li a:visited
 	margin-left:100px;
 }
 
-.button {
-        border-radius: 5em;
-        background: #72e63a;
-        border-radius: 5em;
-        display: block;
-        font-family: 'Asap', serif;
-        letter-spacing: 0;
-        list-style: none;
-        margin: 2em auto;
-        text-align: center;
-        text-transform: uppercase;
-        width: 5em;
-        height: 5em;
-}
-
 .button input{
         border: none;
         color: #000;
@@ -175,9 +163,8 @@ nav ul li a:visited
 
 
 footer {
-        
         background: #111;
-        position: fixed;
+        position:fixed;
         color:white;
         bottom: 0;
         left: 0;
@@ -237,7 +224,10 @@ POSTS
         width: 92%;
 }
 
-
+.content #post_results{
+	color:red;
+	text-align: center;
+}
 /*--------------------------------------------------------------------
 POSTS
 ---------------------------------------------------------------------*/
@@ -288,6 +278,328 @@ FOLLOW
         text-align: center;
 }
 
-.hidden {
+/*--------------------------------------------------------------------
+Online chat
+---------------------------------------------------------------------*/
+
+
+.chatroom article{
+	margin-bottom: 1em;
+    margin-left:10px;
+}
+
+.chatroom #online_list{
+	postion:absolute;	
+	margin-left:590px;
+	margin-top:30px;
+	border: 1px dotted #cdcdcd;
+}
+
+.chat-pic {
+	width: 30px;
+	height: 30px;
+	margin-right:10px;
+}
+.chatroom h4{
+	text-align: center;
+}
+
+.chatroom #chat_history{
+	position:absolute;
+	margin-top: -70px;
+}
+
+.chatroom #chat_input{
+	position:absolute;
+	margin-top: 200px;
+}
+.chatroom #chat {
+	width:280px;
+	height:20px;
+}
+
+.chatroom #chat_submit {
+	border-radius: 5em;
+    color: #000;
+    font-size: 1em;
+    text-align: center;
+   
+}
+/*--------------------------------------------------------------------
+Game page
+---------------------------------------------------------------------*/
+
+.gamepage #gamerecord{
+	position: absolute;
+	margin-left:150px;
+	margin-top: 100px;	
+	width: 100px;
+	height: 100px;
+}
+
+.gamepage #recordlink{
+	position: absolute;
+	margin-top: 205px;
+	margin-left:140px;
+}
+
+.gamepage #guessgame{
+	position: absolute;
+	margin-left: 550px;
+	margin-top: 80px;
+	
+	height: 100px;
+}
+
+.gamepage #gamelink{
+	position: absolute;
+	margin-left: 500px;
+	margin-top: 205px;
+	
+}
+
+.gamepage a:link{
+	border-radius: 5em;
+	background: #72e63a;
+	font-family: serif,Helvetica;
+	letter-spacing: 0;
+	list-style: none;
+	margin-right: 10px;
+	text-align: center;
+	text-transform: uppercase;
+	width: 5em;
+	height: 5em;
+}
+
+/*--------------------------------------------------------------------
+Game record
+---------------------------------------------------------------------*/
+
+.gamerecord table {
+	border:1px dotted blue;
+	width: 500px;
+	table-layout: fixed;
+	height:50px;
+	margin: 0px auto; 
+}
+
+.gamerecord table td, table th{
+	border:1px dotted blue;
+	text-align: center;
+	vertical-align: center;
+	padding:15px;
+}
+
+.gamerecord #firstcolumn{
+	width:100px;
+}
+
+.gamerecord #secondcolumn, #thridcolumn{
+	width:200px;
+}
+
+.gamerecord #message{
+	text-align: center;
+	font-size: 1em;
+	font-family: Helvetica, Arial, sans-serif;
+	font-weight: 700;
+	text-shadow: 1px 1px 1px #fff;
+	margin-bottom:25px;
+	color: red;
+}
+
+/*--------------------------------------------------------------------
+guess game
+---------------------------------------------------------------------*/
+
+.guess #features{
+	border-bottom:1px dotted gray;
+	margin-bottom: 10px;
+}
+.guess #take_guess {
+	margin-top:70px;
+	position: absolute;
+	font-family: Helvetica,Serif;
+	margin-left: 60px;
+	font-size: 1.2em;
+	border-right:2px solid blue;
+	padding-right: 30px;
+}
+
+.guess #error{
+	font-size: 1.2em;
+	font-family: Helvetica,Serif;
+	color: red;
+}
+
+.guess #scratchpad{
+	margin-top:30px;
+}
+
+.guess #history {
+	margin-top:60px;
+	position: absolute;
+	font-family: Helvetica,Serif;
+	margin-left: 330px;
+	font-size: 1.2em;
+	padding:20px 20px 70px 20px;
+
+}
+.guess #guesses {
+
+	margin-left: 30px;
+	line-height: 150%;
+}
+
+.guess #results,
+.guess #timemessage {
+	position: absolute;
+	margin-left:290px;
+	font-family: Serif, Helvetica;
+	font-style: italic;
+	font-weight: bold;
+	font-size: 1.6em;
+	text-shadow: 1px 1px 2px #fff;
+	color: #9400D3;
+	margin-top:22px;
+}
+
+.guess #hint {
+	position: absolute;
+	margin-left: 750px;
+	margin-top:80px;
+	font-family: Helvetica,Serif;
+	font-size: 1.3em;
+	color:#0059FF;
+}
+
+.number {
+	display:inline-block;
+	padding:5px;
+	border:1px solid gray;
+	font-family: Helvetica,Serif;
+	font-size: 1.6em;
+}
+
+.guess #number {
+	margin:100px 10px 0px 760px;
+	position: absolute;
+	padding:10px 0px 10px 10px;
+}
+
+.guess input[type=text] {
+	font-family: Helvetica,Serif;
+	width:160px;
+	margin-top:20px;
+	font-size:1.5em;
+}
+
+.guess input[type=number]::-webkit-inner-spin-button,
+.guess input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+.guess button {
+	border:1px solid #ccc;
+	background-color:#eee;
+	font-size:1em;
+}
+.guess button:hover {
+	background-color:#dfdfdf;
+	position:relative;
+	top:1px;
+}
+
+.hint{
+	margin:115px 10px 0px 740px;
+	position: absolute;
+	font-family: Helvetica,Serif;
+	font-size: 1.2em;
+	border:2px solid gray;
+	padding:10px 0px 10px 10px;
+	line-height: 150%;
+	padding-bottom: 30px;
+}
+
+.guess #result_hint1,
+.guess #result_hint2
+{
+	margin-top:5px;
+	font-family: Helvetica,Serif;
+	color: #800000;
+	font-size: 1em;
+}
+
+.score {
+	
+	position: absolute;
+	border:2px solid gray;
+	color:#0059FF;
+	font-family: Helvetica,Serif;
+	font-size: 2.5em;
+	width:65px;
+	margin-left: 25px;
+	text-align: center;
+	padding: 5px;
+}
+
+.guess #record{
 	display: none;
+	position: absolute;
+	margin-left: 650px;
+	margin-top: -150px;
+	border:1px dotted gray;
+	padding:.3em;
+	background-color:white;
+	width:260px;
+	height:100px;
+	color: red;
+	text-align: center;
+}
+
+.guess #unpost_record{
+	margin-left:50px;
+}
+
+.guess #post_results{
+	color:red;
+	position: absolute;
+	margin-top:780px;
+	margin-left: 220px;	
+}
+
+.guess .new-post{
+	position: absolute;
+	margin-top:500px;
+	margin-left: 50px;
+}
+
+.guess #ready {
+	border-radius: 5em;
+	background: #72e63a;
+	display: block;
+	font-family: serif,Helvetica;
+	letter-spacing: 0;
+	list-style: none;
+	margin: 2em auto;
+	text-align: center;
+	text-transform: uppercase;
+	width: 5em;
+	height: 5em;
+}
+
+.guess #countdown{
+	
+	position: absolute;
+	border:2px solid gray;
+	color:#0059FF;
+	font-family: Helvetica,Serif;
+	font-size: 2.5em;
+	width:65px;
+	margin-left: 175px;
+	margin-top: -40px;
+	text-align: center;
+	padding: 5px;
 }

@@ -48,7 +48,7 @@
             # blank post is not allowed.
             if (!$_POST['content']) {
                 
-                echo "Please share your interesting things with us (at least one character is required). <br><a href='/posts/add'>Go back</a>";
+                echo "Please share your interesting things with us (at least one character is required).";
                 
             } else {
 
@@ -67,7 +67,7 @@
             # Quick and dirty feedback
             //echo "Your post has been added. <br><a href='/posts/add'>What about one more?</a> <br> <a href='/'>Back to main page</a>";
         
-            $view = new View('v_posts_p_add');
+            $view = View::instance('v_posts_p_add');
             $view -> created = Time::display(Time::now());
             echo $view;
         }
