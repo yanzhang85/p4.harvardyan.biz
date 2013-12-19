@@ -31,7 +31,7 @@ $('#refresh-button').click(function() {
             $('#all_time').html(all_time);
 
             // show congratulations if the player sets the game record in Netchat
-            if (data['you_score']==data['all_score']  || data['you_time'] == data['all_time']) {
+            if ((!(data['you_score_time']==0) && data['you_score']==data['all_score'] ) || (!(data['you_time_time']==0) && data['you_time'] == data['all_time'])) {
                 $('#message').html('You are a beast. You set the record in Netchat!');
             }
 

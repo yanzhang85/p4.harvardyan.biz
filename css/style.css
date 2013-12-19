@@ -306,7 +306,7 @@ Online chat
 
 .chatroom #chat_history{
 	position:absolute;
-	margin-top: -60px;
+	margin-top: -20px;
 }
 
 .chatroom #chat_input{
