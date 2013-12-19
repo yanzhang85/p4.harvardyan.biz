@@ -64,9 +64,7 @@
             # Note we didn't have to sanitize any of the $_POST data because we're using the insert method which does it for us
             DB::instance(DB_NAME)->insert('posts', $_POST);
             
-            # Quick and dirty feedback
-            //echo "Your post has been added. <br><a href='/posts/add'>What about one more?</a> <br> <a href='/'>Back to main page</a>";
-        
+            # echo the view to ajax      
             $view = View::instance('v_posts_p_add');
             $view -> created = Time::display(Time::now());
             echo $view;

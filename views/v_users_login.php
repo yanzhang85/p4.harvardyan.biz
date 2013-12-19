@@ -17,8 +17,5 @@
         </div>
         
         <div class= 'button'><input type='submit' value='Log in'></div>
-
-
-
     </form>
 </section>

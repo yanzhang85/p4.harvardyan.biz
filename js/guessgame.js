@@ -8,7 +8,7 @@ for(var i=0;i<=9;i++) {
 	}
 }
 
-// get rabdom number array
+// get random number array
 var random_number_array = new Array;
     random_number_array[0] = Math.floor((Math.random()*9)+1);
 	for (var j=1;j<5;j++){
@@ -22,12 +22,13 @@ console.log("Computer's number:" + random_number_array);
 var score=100;
 $('.score').html(score);
 
-// define variabls on the page
+// define variables on the page
 var digit_match_count = position_match_count = 0;
 
 // define trial times for match version
 var trial_times=0;
 
+// diable the button initially
 $("#guess_time").attr("disabled", "disabled");
 
 // key "enter" works in the number input
@@ -56,9 +57,9 @@ $('input[name=guess]').bind("enterkey",function(eve){
 });
 
 	
-// Play_match version! 
+// Play_score version! 
 $('#guess_score').click(function() {
-	
+	// call the function below
 	check_answer();
 	// count trail times
 	trial_times++;
@@ -68,7 +69,7 @@ $('#guess_score').click(function() {
 		$('.score').html(score);
 	}		
 	// If their match count equals the the length of the computer's word, Winner! 
-	if(digit_match_count == 5) {
+	if(position_match_count == 5) {
 		if (score>=80){
 			$("#results").html('Smart guy! What about playing <a href="/guessgame/scoremode">one more time</a>?');
 		}
@@ -82,12 +83,15 @@ $('#guess_score').click(function() {
 		$("#guess_score").attr("disabled", "disabled");
 		$("#hint1").attr("disabled", "disabled");
 		$("#hint2").attr("disabled", "disabled");
+		// get his/her highese score in the record
 		var highest_score=$('#highest_score').val();
 		console.log(highest_score);
 		if (score > highest_score) {
+			//update the record
 			var add=window.open('/guessgame/scoreadd/'+score);
 			add.close();
 			$('#record').show();
+			//show the post section if he/she wants to post the result
 			$('#post_record').click(function(){
 				$('#record').hide();
 				$('#hidden').show();
@@ -98,6 +102,7 @@ $('#guess_score').click(function() {
 			});
 		}
 	}
+	// clear the input and reset the variables
 	digit_match_count= position_match_count=0;
 	$('input[name=guess]').val('');
 });	
@@ -213,10 +218,10 @@ $('#hint2').one('click',function(){
 	score -=15;
 	$('.score').html(score);
 });
-
+// set the variable of time_left
 var time_left = 300;
 var cinterval;
-
+//countdown the time from 300 to 0
 function time_dec(){
   time_left--;
   $('#countdown').html(time_left);
@@ -229,7 +234,7 @@ function time_dec(){
     clearInterval(cinterval);
   }
 }
-
+// start game if the button is clicked (for time mode)
 $('#ready').one('click',function(){
 	cinterval = setInterval('time_dec()', 1000);
 	$("#ready").attr("disabled", "disabled");
@@ -239,22 +244,26 @@ $('#ready').one('click',function(){
 	});
 })
 
-// Play_match version! 
+// Play_time version! 
 $('#guess_time').click(function() {
-	
+	// call the function below
 	check_answer();
 	
-	if(digit_match_count == 5){
+	if(position_match_count == 5){
+		// stop the countdown if the number is guessed correctly
 		clearInterval(cinterval);
 		$('#results').html('You are awesome! Wannna play it again?');
 		$("#guess_time").attr("disabled", "disabled");
+		// get his/her record of number guess game (time mode)
 		var shortest_time=$('#shortest_time').val();
 		console.log(shortest_time);
 		if (time_left > shortest_time) {
+			//update the record
 			var time= 300 - time_left;
 			var add=window.open('/guessgame/timeadd/'+time_left);
 			add.close();
 			$('#record').show();
+			// show the post area if he.she wants to post the record
 			$('#post_record').click(function(){
 				$('#record').hide();
 				$('#hidden').show();

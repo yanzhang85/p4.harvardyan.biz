@@ -1,6 +1,3 @@
-var a = $('#refresh-button').val;
-console.log(a);
-
 $('#refresh-button').click(function() {
 
     $.ajax({
@@ -9,7 +6,7 @@ $('#refresh-button').click(function() {
         success: function(response) { 
 
             // For debugging purposes
-            console.log(response);
+            //console.log(response);
 
             // Example response: {"post_count":"9","user_count":"13","most_recent_post":"May 23, 2012 1:14am"}
 
@@ -17,6 +14,7 @@ $('#refresh-button').click(function() {
             var data = $.parseJSON(response);
 
             // Inject the data into the page
+            // differentiate whether they have played the game or not
             if (data['you_score_time']==0) {
                 $('#you_score').html('You have not played the game yet. What about <a href="/guessgame/scoremode">playing it </a>right now?');
             } else {
@@ -32,6 +30,7 @@ $('#refresh-button').click(function() {
             var all_time= 300- data['all_time'];
             $('#all_time').html(all_time);
 
+            // show congratulations if the player sets the game record in Netchat
             if (data['you_score']==data['all_score']  || data['you_time'] == data['all_time']) {
                 $('#message').html('You are a beast. You set the record in Netchat!');
             }

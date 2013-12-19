@@ -10,6 +10,7 @@ class guessgame_controller extends base_controller {
 
         # Create the data array we'll use with the update method
         # In this case, we're only updating one field, so our array only has one entry
+        # Set chatroom as 0 when the user is not on the online_chat webpage
         $data = Array("chatroom" => 0);
 
         # Do the update
@@ -35,6 +36,7 @@ class guessgame_controller extends base_controller {
         # Set up the view
         $this->template->content = View::instance('v_guessgame_scoremode');
 
+        # Get the score_record from database
         $q = 'SELECT *
                 FROM gamerecord
                 WHERE user_id = '.$this->user->user_id;
@@ -64,7 +66,7 @@ class guessgame_controller extends base_controller {
                  "/js/guessgame.js",
                  "/js/posts_add.js"
             );
-
+        # Get the score_record from database
         $q = 'SELECT *
                 FROM gamerecord
                 WHERE user_id = '.$this->user->user_id;
@@ -81,7 +83,7 @@ class guessgame_controller extends base_controller {
 
 
     public function scoreadd($score){
-        # process the upload
+        # update the record
             $data = Array(
                 "guess_score" => $score,
                 "score_timecreated" => Time::now()
@@ -92,7 +94,7 @@ class guessgame_controller extends base_controller {
     }
 
     public function timeadd($time){
-        # process the upload
+        # update the record
             $data = Array(
                 "guess_time" => $time,
                 "time_timecreated" => Time::now()

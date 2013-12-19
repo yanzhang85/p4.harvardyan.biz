@@ -116,20 +116,20 @@ nav ul li {
 	height: 5em;
 }
 
-nav ul li: hover{
+nav ul li:hover{
 	background: #72e63a;
 }
 
 nav ul li a:link, 
 nav ul li a:visited
  {
-        color: #efefef;
-        line-height: 1em;
-        position: relative;
-        top: 1.5em;
-        text-align: center;
-        text-decoration: none;
-        vertical-align: middle;
+    color: #efefef;
+    line-height: 1em;
+    position: relative;
+    top: 1.5em;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
 }
 
 .mainpage{
@@ -137,39 +137,39 @@ nav ul li a:visited
 }
 
 .button input{
-        border: none;
-        color: #000;
-        display: block;
-        font-size: .8em;
-        font-weight: 700;
-        line-height: 1.6em;
-        margin: 0 auto;
-        padding: .8em;
-        position: relative;
-        top: 1.5em;
-        text-align: center;
-        text-decoration: none;
-        text-transform: uppercase;
+    border: none;
+    color: #000;
+    display: block;
+    font-size: .8em;
+    font-weight: 700;
+    line-height: 1.6em;
+    margin: 0 auto;
+    padding: .8em;
+    position: relative;
+    top: 1.5em;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
 }
 
 .content {
-        background: #efefef;
-        color: #111;
-        margin: 5em auto 0 auto;
-        padding-bottom: 6em;
-        width: 60%;
+    background: #efefef;
+    color: #111;
+    margin: 5em auto 0 auto;
+    padding-bottom: 6em;
+    width: 60%;
 
 }
 
 
 footer {
-        background: #111;
-        position:fixed;
-        color:white;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        text-align: left;
+    background: #111;
+    position:fixed;
+    color:white;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: left;
 }
 
 footer a:link,
@@ -181,25 +181,25 @@ footer a:visited
 /*--------------------------------------------------------------------
 LOGIN
 ---------------------------------------------------------------------*/
-.content.login {
-        margin-top: 2em;
+.content .login {
+    margin-top: 2em;
 }
 
 .message {
-        font-size: 1em;
-        padding: 1em 0;
+    font-size: 1em;
+    padding: 1em 0;
 }
 
 .error {
-        color: red;
+    color: red;
 }
 
 /*--------------------------------------------------------------------
 PROFILE
 ---------------------------------------------------------------------*/
 .profile h4 {
-        margin-top: 2em;
-        text-align: center;
+    margin-top: 2em;
+    text-align: center;
 }
 
 .profile input {
@@ -216,12 +216,12 @@ PROFILE
 POSTS
 ---------------------------------------------------------------------*/
 .new-post textarea {
-        background: #fff;
-        border: 1px dotted #cdcdcd;
-        padding: 1em;
-        margin: 0 auto;
-        min-height: 100px;
-        width: 92%;
+    background: #fff;
+    border: 1px dotted #cdcdcd;
+    padding: 1em;
+    margin: 0 auto;
+    min-height: 100px;
+    width: 92%;
 }
 
 .content #post_results{
@@ -232,50 +232,50 @@ POSTS
 POSTS
 ---------------------------------------------------------------------*/
 .posts article {
-        border-bottom: 1px dotted #cdcdcd;
-        margin: 1.5em 0 0 0;
-        padding-bottom: 2em;
+    border-bottom: 1px dotted #cdcdcd;
+    margin: 1.5em 0 0 0;
+    padding-bottom: 2em;
 }
 
 .posts .name{
-		color:black;
-		font-size: 1.3em;
-		font-family: Helvetica, Arial, sans-serif;
-		font-weight: 700;
-		letter-spacing: .2em;
-		margin :1em auto;
-		text-align: left;
-		text-shadow: 1px 1px 1px #fff;
-		width: 100%;
+	color:black;
+	font-size: 1.3em;
+	font-family: Helvetica, Arial, sans-serif;
+	font-weight: 700;
+	letter-spacing: .2em;
+	margin :1em auto;
+	text-align: left;
+	text-shadow: 1px 1px 1px #fff;
+	width: 100%;
 }
 
 .posts p {
-        background: #fff;
-        border: 1px dotted #cdcdcd;
-        font-family: serif, Helvetica;
-        font-size: 1.2em;
-        padding: 1em;
+    background: #fff;
+    border: 1px dotted #cdcdcd;
+    font-family: serif, Helvetica;
+    font-size: 1.2em;
+    padding: 1em;
 }
 
 .posts .time {
-        background: none;
-        border: none;
-        text-align: right;
+    background: none;
+    border: none;
+    text-align: right;
 }
 
 /*--------------------------------------------------------------------
 FOLLOW
 ---------------------------------------------------------------------*/
 .follow article {
-        border-bottom: 1px dotted #cdcdcd;
-        margin-bottom: 1em;
-        padding-bottom: 1em;
-        text-align: center;
+    border-bottom: 1px dotted #cdcdcd;
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+    text-align: center;
 }
 
 .follow h4 {
-        margin-top: .5em;
-        text-align: center;
+    margin-top: .5em;
+    text-align: center;
 }
 
 /*--------------------------------------------------------------------
@@ -289,9 +289,9 @@ Online chat
 }
 
 .chatroom #online_list{
-	postion:absolute;	
+	position:absolute;	
 	margin-left:590px;
-	margin-top:30px;
+	margin-top:50px;
 	border: 1px dotted #cdcdcd;
 }
 
@@ -306,12 +306,12 @@ Online chat
 
 .chatroom #chat_history{
 	position:absolute;
-	margin-top: -70px;
+	margin-top: -60px;
 }
 
 .chatroom #chat_input{
 	position:absolute;
-	margin-top: 200px;
+	margin-top: 250px;
 }
 .chatroom #chat {
 	width:280px;
@@ -346,16 +346,14 @@ Game page
 .gamepage #guessgame{
 	position: absolute;
 	margin-left: 550px;
-	margin-top: 80px;
-	
+	margin-top: 80px;	
 	height: 100px;
 }
 
 .gamepage #gamelink{
 	position: absolute;
 	margin-left: 500px;
-	margin-top: 205px;
-	
+	margin-top: 205px;	
 }
 
 .gamepage a:link{
@@ -446,7 +444,6 @@ guess game
 
 }
 .guess #guesses {
-
 	margin-left: 30px;
 	line-height: 150%;
 }

@@ -35,13 +35,14 @@
 	<div> Remaining Seconds <br>
 		  <span id="countdown">300</span> 
 	</div>
-
-	<div id="record" style="float:right;display:none;border:1px dotted gray;padding:.3em;background-color:white;width:200px;height:100px;">
+	<!-- show the message of you breaking the record -->
+	<div id="record">
 	    <p>You just broke you own record. Do you want to share it with your friends?</p>
 	    <a href="#post" id="post_record">YES</a>
 	    <a href="#post" id="unpost_record">NO</a>
 	</div>
 	<a name="post"></a> 
+	<!-- show the post area -->
 	<div class="hidden" id="hidden">
 		<form class="new-post" method='POST' action='/posts/p_add'>
 			<textarea name='content' id='guessgame_content' rows="5" cols="100"> </textarea>
@@ -51,6 +52,6 @@
 		</form> 
 		<div id="post_results"></div>
 	</div>
-
+	<!-- pass the record to JS -->
 	<input type="hidden" id="shortest_time" value="<?=$game_record[0]['guess_time']?>" >
 </section>

@@ -13,7 +13,7 @@
 			<input type="file" name="avata" id="avata"> 
 			<?php if(isset($error)): ?>	           
 				<div class="messge error">Upload failed.<br> 
-				Image file must be a jpg, gif, or png.
+					Image file must be a jpg, gif, or png.
 				</div>	        
 			<?php endif; ?>
 			<button type="submit" class="button">Update Image</button>

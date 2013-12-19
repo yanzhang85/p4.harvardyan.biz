@@ -11,15 +11,12 @@
     <input type='password' name='password' placeholder="Enter password"><br>
     <input type='password' name='retype' placeholder="Retype password"><br>
       
-      <!-- warn on signup errors -->
-      <?php if (isset($error)): ?>
-        <div class="error"> Signup failed. 
-          <?php echo $error; ?>
-        </div>
-      <?php endif; ?>
-
+    <!-- warn on signup errors -->
+    <?php if (isset($error)): ?>
+      <div class="error"> Signup failed. 
+        <?php echo $error; ?>
+      </div>
+    <?php endif; ?>
     <div class='button'>  <input type='submit' value='Sign Up'> </div>
-
-
   </form>
 </section>

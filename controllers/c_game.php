@@ -10,6 +10,7 @@ class game_controller extends base_controller {
 
         # Create the data array we'll use with the update method
         # In this case, we're only updating one field, so our array only has one entry
+        # Set chatroom as 0 when the user is not on the online_chat webpage
         $data = Array("chatroom" => 0);
 
         # Do the update
@@ -43,7 +44,7 @@ class game_controller extends base_controller {
 
         $data = $game_record =Array();
         
-        # Find out how many posts there are
+        # Find out the record of that player
         $q = 'SELECT * FROM gamerecord where user_id = '.$this->user->user_id;
         $game_record = DB::instance(DB_NAME)->select_rows($q);
         $data['you_score'] = $game_record[0]['guess_score'];
@@ -52,7 +53,7 @@ class game_controller extends base_controller {
         $data['you_time_time'] = $game_record[0]['time_timecreated'];
         
 
-        # Find out how many users there are
+        # Find out the record in Netchat
         $q = "SELECT max(guess_score) FROM gamerecord";
         $data['all_score'] = DB::instance(DB_NAME)->select_field($q);
 
