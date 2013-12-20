@@ -37,11 +37,11 @@ class guessgame_controller extends base_controller {
         $this->template->content = View::instance('v_guessgame_scoremode');
 
         # Get the score_record from database
-        $q = 'SELECT *
+        $q = 'SELECT guess_score
                 FROM gamerecord
                 WHERE user_id = '.$this->user->user_id;
 
-        $game_record = DB::instance(DB_NAME)->select_rows($q);
+        $score_record = DB::instance(DB_NAME)->select_field($q);
 
         # Load JS files
             $client_files_body = Array(
@@ -51,7 +51,7 @@ class guessgame_controller extends base_controller {
             );
 
         $this->template->client_files_body = Utils::load_client_files($client_files_body); 
-        $this->template->content->game_record = $game_record;
+        $this->template->content->score_record = $score_record;
 
         # Render the view
         echo $this ->template;
@@ -67,15 +67,15 @@ class guessgame_controller extends base_controller {
                  "/js/posts_add.js"
             );
         # Get the score_record from database
-        $q = 'SELECT *
+        $q = 'SELECT guess_time
                 FROM gamerecord
                 WHERE user_id = '.$this->user->user_id;
 
-        $game_record = DB::instance(DB_NAME)->select_rows($q);
+        $time_record = DB::instance(DB_NAME)->select_field($q);
 
 
         $this->template->client_files_body = Utils::load_client_files($client_files_body); 
-        $this->template->content->game_record = $game_record;
+        $this->template->content->time_record = $time_record;
 
         # Render the view
         echo $this ->template;

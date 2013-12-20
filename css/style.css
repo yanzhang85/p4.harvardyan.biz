@@ -47,7 +47,7 @@ h4 {
 
 form {
 	font-family: Helvetica, sans-serif;
-	font size: 1em;
+	font-size: 1em;
 	text-align: center;
 	margin-top: 3em;
 }
@@ -384,7 +384,7 @@ Game record
 .gamerecord table td, table th{
 	border:1px dotted blue;
 	text-align: center;
-	vertical-align: center;
+	vertical-align: middle;
 	padding:15px;
 }
 
@@ -490,13 +490,6 @@ guess game
 	margin-top:20px;
 	font-size:1.5em;
 }
-
-.guess input[type=number]::-webkit-inner-spin-button,
-.guess input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
 
 .guess button {
 	border:1px solid #ccc;

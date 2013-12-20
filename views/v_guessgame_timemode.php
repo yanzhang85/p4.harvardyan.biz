@@ -53,5 +53,5 @@
 		<div id="post_results"></div>
 	</div>
 	<!-- pass the record to JS -->
-	<input type="hidden" id="shortest_time" value="<?=$game_record[0]['guess_time']?>" >
+	<input type="hidden" id="shortest_time" value="<?=$time_record?>" >
 </section>

@@ -72,5 +72,5 @@
 	</div>
 
 	<!-- pass the record to JS -->
-	<input type="hidden" id="highest_score" value="<?=$game_record[0]['guess_score']?>" >
+	<input type="hidden" id="highest_score" value="<?=$score_record?>" >
 </section>
