@@ -7,14 +7,18 @@
             <td id="firstcolumn"> Guess game</td>
             <td id="secondcolumn"> You </td>
             <td id="thridcolumn"> All users </td>
+        </tr>
         <tr>
             <td> Highest score</td>
             <td id='you_score'></td>
             <td id='all_score'></td>
+        </tr>
         <tr>
             <td> Fastest time</td>
             <td id='you_time'></td>
             <td id='all_time'></td>
+        </tr>
+    </table>
 
     <button class="button" id='refresh-button'>Refresh</button>
 
